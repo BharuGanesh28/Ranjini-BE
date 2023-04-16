@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 // configure body-parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
