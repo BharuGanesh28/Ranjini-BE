@@ -2,6 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+require('dotenv').config();
+
+const databaseUrl = process.env.DATABASE_URL;
+
 const app = express();
 
 const PORT = process.env.PORT || 8080;
@@ -11,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); 
 
 // connect to MongoDB
-mongoose.connect('mongodb+srv://bharuganesh283:qfR2De4CeuT1r9c9@ranjiniportfolio.mlpyqnj.mongodb.net/Ranjini', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(databaseUrl, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('MongoDB connected'))
     .catch(err => console.log(err));
 

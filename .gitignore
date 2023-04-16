@@ -1,2 +1,5 @@
 # Ignore a specific directory
 /node_modules
+
+#Ignore Environment variable
+.env
