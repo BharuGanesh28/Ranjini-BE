@@ -13,6 +13,12 @@ const PORT = process.env.PORT || 8080;
 // configure body-parser middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*"); // Replace * with your front-end domain
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 
 // connect to MongoDB
 mongoose.connect(databaseUrl, { useNewUrlParser: true, useUnifiedTopology: true })
